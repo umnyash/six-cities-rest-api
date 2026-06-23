@@ -14,6 +14,7 @@ export class HelpCommand implements Command {
         Команды:
             ${CommandName.Version}:                     # выводит номер версии
             ${CommandName.Help}:                        # печатает этот текст
+            ${CommandName.Import} <path>:               # импортирует данные из TSV
     `);
   }
 }
