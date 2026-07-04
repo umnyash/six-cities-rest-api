@@ -1,5 +1,6 @@
 import { CommandName } from './command-name.enum.js';
 import { Command } from './command.interface.js';
+import { getErrorMessage } from '../../shared/utils/index.js';
 import { TSVFileReader } from '../../shared/libs/file-reader/index.js';
 
 export class ImportCommand implements Command {
@@ -15,13 +16,8 @@ export class ImportCommand implements Command {
       fileReader.read();
       console.log(fileReader.parseOffers());
     } catch (error: unknown) {
-
-      if (!(error instanceof Error)) {
-        throw error;
-      }
-
       console.error(`Can't import data from file: ${filename}`);
-      console.error(`Details: ${error.message}`);
+      console.error(getErrorMessage(error));
     }
   }
 }

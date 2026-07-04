@@ -1,3 +1,7 @@
+export function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : '';
+}
+
 export function parseBoolean(string: 'true' | 'false'): boolean {
   return string === 'true';
 }
