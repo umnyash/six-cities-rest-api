@@ -95,6 +95,6 @@ export class TSVOfferGenerator implements OfferGenerator {
       COORDINATE_FRACTION_DIGITS
     );
 
-    return coordinate + shift;
+    return +(coordinate + shift).toFixed(COORDINATE_FRACTION_DIGITS);
   }
 }
