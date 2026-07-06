@@ -1,6 +1,7 @@
 import { CommandName } from './commands/command-name.enum.js';
 import { Command } from './commands/command.interface.js';
 import { CommandParser } from './command.parser.js';
+import { stylizeErrorMessage } from './cli.styles.js';
 
 type CommandCollection = Record<string, Command>;
 
@@ -14,7 +15,7 @@ export class CLIApplication {
   public registerCommands(commandList: Command[]): void {
     commandList.forEach((command) => {
       if (Object.hasOwn(this.commands, command.getName())) {
-        throw new Error(`Command ${command.getName()} is already registered.`);
+        throw new Error(stylizeErrorMessage(`Command ${command.getName()} is already registered.`));
       }
 
       this.commands[command.getName()] = command;
@@ -35,7 +36,7 @@ export class CLIApplication {
 
   private getDefaultCommand(): Command | never {
     if (!Object.hasOwn(this.commands, this.defaultCommandName)) {
-      throw new Error(`The default command (${this.defaultCommandName}) is not registered.`);
+      throw new Error(stylizeErrorMessage(`The default command (${this.defaultCommandName}) is not registered.`));
     }
 
     return this.commands[this.defaultCommandName];

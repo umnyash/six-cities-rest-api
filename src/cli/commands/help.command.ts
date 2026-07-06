@@ -1,5 +1,6 @@
 import { CommandName } from './command-name.enum.js';
 import { Command } from './command.interface.js';
+import { stylizeHeading, stylizeUrl, stylizeCommandName, stylizeCommandArguments } from '../cli.styles.js';
 
 export class HelpCommand implements Command {
   public getName(): string {
@@ -8,14 +9,16 @@ export class HelpCommand implements Command {
 
   public async execute(..._parameters: string[]): Promise<void> {
     console.info(`
-        Программа для подготовки данных для REST API сервера.
+        ${stylizeHeading('Программа для подготовки данных для REST API сервера.')}
+
         Использование:
-            cli.js --<command> [--arguments]
+            ${stylizeUrl('cli.js')} ${stylizeCommandName('--<command>')} ${stylizeCommandArguments('[--arguments]')}
+
         Команды:
-            ${CommandName.Version}:                     # выводит номер версии
-            ${CommandName.Help}:                        # печатает этот текст
-            ${CommandName.Import} <path>:               # импортирует данные из TSV
-            ${CommandName.Generate} <n> <path> <url>:   # генерирует заданное количество тестовых данных
+            ${stylizeCommandName(CommandName.Version)}:                     # выводит номер версии
+            ${stylizeCommandName(CommandName.Help)}:                        # печатает этот текст
+            ${stylizeCommandName(CommandName.Import)} ${stylizeCommandArguments('<path>')}:               # импортирует данные из TSV
+            ${stylizeCommandName(CommandName.Generate)} ${stylizeCommandArguments('<n> <path> <url>')}:   # генерирует заданное количество тестовых данных
     `);
   }
 }

@@ -30,6 +30,7 @@
     "typescript-eslint": "8.23.0"
   },
   "dependencies": {
+    "chalk": "5.6.2",
     "dayjs": "1.11.21",
     "got": "14.6.6"
   }

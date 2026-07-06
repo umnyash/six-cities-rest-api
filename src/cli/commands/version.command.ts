@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { CommandName } from './command-name.enum.js';
 import { Command } from './command.interface.js';
 import { getErrorMessage } from '../../shared/utils/index.js';
+import { stylizeErrorMessage } from '../cli.styles.js';
 
 type PackageJSONConfig = {
   version: string;
@@ -32,8 +33,8 @@ export class VersionCommand implements Command {
       const version = this.readVersion();
       console.info(version);
     } catch (error: unknown) {
-      console.error(`Failed to read version from ${this.filepath}`);
-      console.error(getErrorMessage(error));
+      console.error(stylizeErrorMessage(`Failed to read version from ${this.filepath}`));
+      console.error(stylizeErrorMessage(getErrorMessage(error)));
     }
   }
 

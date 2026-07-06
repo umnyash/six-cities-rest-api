@@ -6,6 +6,7 @@ import { Command } from './command.interface.js';
 import { getErrorMessage, parseInteger } from '../../shared/utils/index.js';
 import { TSVOfferGenerator } from '../../shared/libs/offer-generator/index.js';
 import { TSVFileWriter } from '../../shared/libs/file-writer/index.js';
+import { stylizeSuccessMessage, stylizeErrorMessage } from '../cli.styles.js';
 
 export class GenerateCommand implements Command {
   private initialData: MockServerData;
@@ -21,10 +22,10 @@ export class GenerateCommand implements Command {
     try {
       await this.load(url);
       await this.write(filepath, offersCount);
-      console.info(`File ${filepath} was created!`);
+      console.info(stylizeSuccessMessage(`File ${filepath} was created!`));
     } catch (error: unknown) {
-      console.error('Can\'t generate data.');
-      console.error(getErrorMessage(error));
+      console.error(stylizeErrorMessage('Can\'t generate data.'));
+      console.error(stylizeErrorMessage(getErrorMessage(error)));
     }
   }
 
