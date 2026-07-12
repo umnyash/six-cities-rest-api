@@ -1,4 +1,5 @@
 export { CityName } from './city-name.enum.js';
+export { Component } from './component.enum.js';
 export { HousingType } from './housing-type.enum.js';
 export { MockServerData } from './mock-server-data.type.js';
 export { Offer } from './offer.type.js';
