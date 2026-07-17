@@ -1,4 +1,5 @@
 import { CityName } from './city-name.enum.js';
+import { Coordinates } from './coordinates.type.js';
 import { HousingType } from './housing-type.enum.js';
 import { OfferFeature } from './offer-feature.enum.js';
 import { User } from './user.type.js';
@@ -16,10 +17,7 @@ export type Offer = {
   photoUrls: string[];
   description: string;
   cityName: CityName;
-  coordinates: {
-    latitude: number;
-    longitude: number;
-  };
+  coordinates: Coordinates;
   author: User;
   publicationDate: Date;
 }
