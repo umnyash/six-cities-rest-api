@@ -3,6 +3,7 @@ export enum Component {
   DatabaseClient = 'DatabaseClient',
   Logger = 'Logger',
   OfferModel = 'OfferModel',
+  OfferService = 'OfferService',
   RestApplication = 'RestApplication',
   UserModel = 'UserModel',
   UserService = 'UserService',
