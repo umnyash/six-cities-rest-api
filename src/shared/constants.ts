@@ -8,6 +8,11 @@ export enum Capacity {
   Max = 10,
 }
 
+export enum DescriptionLength {
+  Min = 20,
+  Max = 1024,
+}
+
 export enum Price {
   Min = 100,
   Max = 100000,
@@ -21,6 +26,11 @@ export enum RatingValue {
 export enum RoomsCount {
   Min = 1,
   Max = 8,
+}
+
+export enum TitleLength {
+  Min = 10,
+  Max = 100,
 }
 
 export enum UsernameLength {
